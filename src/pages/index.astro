@@ -1,0 +1,358 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AdminPanel from '../components/AdminPanel.svelte';
+import { getCollection } from 'astro:content';
+
+// Obtener instrumentos desde Content Collections
+const instrumentsCollection = await getCollection('instruments');
+const instruments = instrumentsCollection[0].data; // Los datos están en el array del JSON
+
+// Agrupar instrumentos por categoría
+const categories = {
+  'Guitarras Eléctricas': instruments.filter(i => i.category === 'Guitarras Eléctricas'),
+  'Guitarras Acústicas': instruments.filter(i => i.category === 'Guitarras Acústicas'),
+  'Guitarras Clásicas': instruments.filter(i => i.category === 'Guitarras Clásicas'),
+  'Pianos Digitales': instruments.filter(i => i.category === 'Pianos Digitales'),
+  'Baterías': instruments.filter(i => i.category === 'Baterías'),
+  'Bajos Eléctricos': instruments.filter(i => i.category === 'Bajos Eléctricos'),
+  'Sintetizadores': instruments.filter(i => i.category === 'Sintetizadores'),
+  'Platillos': instruments.filter(i => i.category === 'Platillos'),
+  'Micrófonos': instruments.filter(i => i.category === 'Micrófonos')
+};
+
+// Obtener marcas únicas
+const uniqueBrands = [...new Set(instruments.map(i => i.brand))];
+---
+
+<Layout title="Inicio" description="Descubre nuestra amplia selección de instrumentos musicales profesionales. Guitarras, pianos, baterías y más.">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Descubre Tu Sonido Perfecto
+      </h1>
+      <p class="hero-subtitle">
+        Instrumentos musicales profesionales para músicos exigentes. 
+        Desde guitarras vintage hasta tecnología de vanguardia.
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">{instruments.length}+</span>
+          <span class="stat-label">Instrumentos</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">{Object.keys(categories).length}</span>
+          <span class="stat-label">Categorías</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">{uniqueBrands.length}+</span>
+          <span class="stat-label">Marcas</span>
+        </div>
+      </div>
+      <a href="/instrumentos/guitarras-electricas" class="hero-cta">
+        Explorar Instrumentos
+      </a>
+    </div>
+    <div class="hero-background">
+      <div class="hero-image">
+        <img src="https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg" alt="Instrumentos musicales" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Categorías Destacadas -->
+  <section class="featured-categories">
+    <div class="container">
+      <h2 class="section-title">Explora Nuestras Categorías</h2>
+      <p class="section-subtitle">Encuentra el instrumento perfecto para tu estilo musical</p>
+      
+      <div class="categories-grid">
+        <a href="/instrumentos/guitarras-electricas" class="category-card">
+          <div class="category-image">
+            <img src="https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg" alt="Guitarras Eléctricas" />
+          </div>
+          <div class="category-info">
+            <h3>Guitarras Eléctricas</h3>
+            <p>{categories['Guitarras Eléctricas'].length} instrumentos</p>
+          </div>
+        </a>
+
+        <a href="/instrumentos/guitarras-acusticas" class="category-card">
+          <div class="category-image">
+            <img src="https://images.pexels.com/photos/1464375/pexels-photo-1464375.jpeg" alt="Guitarras Acústicas" />
+          </div>
+          <div class="category-info">
+            <h3>Guitarras Acústicas</h3>
+            <p>{categories['Guitarras Acústicas'].length} instrumentos</p>
+          </div>
+        </a>
+
+        <a href="/instrumentos/pianos-digitales" class="category-card">
+          <div class="category-image">
+            <img src="https://images.pexels.com/photos/210764/pexels-photo-210764.jpeg" alt="Pianos Digitales" />
+          </div>
+          <div class="category-info">
+            <h3>Pianos Digitales</h3>
+            <p>{categories['Pianos Digitales'].length} instrumentos</p>
+          </div>
+        </a>
+
+        <a href="/instrumentos/baterias" class="category-card">
+          <div class="category-image">
+            <img src="https://images.pexels.com/photos/995301/pexels-photo-995301.jpeg" alt="Baterías" />
+          </div>
+          <div class="category-info">
+            <h3>Baterías</h3>
+            <p>{categories['Baterías'].length} instrumentos</p>
+          </div>
+        </a>
+
+        <a href="/instrumentos/bajos-electricos" class="category-card">
+          <div class="category-image">
+            <img src="https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg" alt="Bajos Eléctricos" />
+          </div>
+          <div class="category-info">
+            <h3>Bajos Eléctricos</h3>
+            <p>{categories['Bajos Eléctricos'].length} instrumentos</p>
+          </div>
+        </a>
+
+        <a href="/instrumentos/sintetizadores" class="category-card">
+          <div class="category-image">
+            <img src="https://images.pexels.com/photos/210764/pexels-photo-210764.jpeg" alt="Sintetizadores" />
+          </div>
+          <div class="category-info">
+            <h3>Sintetizadores</h3>
+            <p>{categories['Sintetizadores'].length} instrumentos</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Panel de Administración (Isla Svelte) -->
+  <AdminPanel client:only="svelte" />
+</Layout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+    color: white;
+  }
+
+  .hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.95;
+    line-height: 1.6;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #60a5fa;
+  }
+
+  .stat-label {
+    font-size: 1rem;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+  }
+
+  .hero-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+  }
+
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(1px) brightness(0.7);
+  }
+
+  .featured-categories {
+    padding: 4rem 0;
+    background: #f9fafb;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .category-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+  }
+
+  .category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .category-image {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .category-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .category-card:hover .category-image img {
+    transform: scale(1.05);
+  }
+
+  .category-info {
+    padding: 1.5rem;
+  }
+
+  .category-info h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .category-info p {
+    color: #6b7280;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 70vh;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .hero-stats {
+      gap: 2rem;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+    }
+
+    .categories-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-stats {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .hero-cta {
+      padding: 0.875rem 1.75rem;
+      font-size: 1rem;
+    }
+  }
+</style>
+</Layout>

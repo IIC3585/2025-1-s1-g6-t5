@@ -1,0 +1,938 @@
+[
+  {
+    "id": 1,
+    "name": "Gibson Les Paul Standard",
+    "slug": "gibson-les-paul-standard",
+    "category": "Guitarras Eléctricas",
+    "price": 2499,
+    "brand": "Gibson",
+    "image": "https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg",
+    "description": "Guitarra eléctrica icónica con cuerpo de caoba y tapa de maple flameado.",
+    "inStock": true,
+    "rating": 4.8,
+    "specifications": {
+      "body": "Caoba con tapa de maple",
+      "neck": "Caoba",
+      "fretboard": "Palisandro",
+      "pickups": "490R & 498T Humbuckers"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Fender Stratocaster Player",
+    "slug": "fender-stratocaster-player",
+    "category": "Guitarras Eléctricas",
+    "price": 899,
+    "brand": "Fender",
+    "image": "https://images.pexels.com/photos/1327430/pexels-photo-1327430.jpeg",
+    "description": "La clásica Stratocaster con pastillas Alnico V y puente moderno de 2 puntos.",
+    "inStock": true,
+    "rating": 4.6,
+    "specifications": {
+      "body": "Aliso",
+      "neck": "Maple",
+      "fretboard": "Maple",
+      "pickups": "Player Series Alnico V Single-Coil"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Yamaha FG830",
+    "slug": "yamaha-fg830",
+    "category": "Guitarras Acústicas",
+    "price": 299,
+    "brand": "Yamaha",
+    "image": "https://images.pexels.com/photos/1464375/pexels-photo-1464375.jpeg",
+    "description": "Guitarra acústica con tapa de pícea sólida y excelente proyección sonora.",
+    "inStock": true,
+    "rating": 4.5,
+    "specifications": {
+      "top": "Pícea sólida",
+      "back": "Nato",
+      "sides": "Nato",
+      "neck": "Nato"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Roland FP-30X",
+    "slug": "roland-fp-30x",
+    "category": "Pianos Digitales",
+    "price": 699,
+    "brand": "Roland",
+    "image": "https://images.pexels.com/photos/210764/pexels-photo-210764.jpeg",
+    "description": "Piano digital portátil con 88 teclas pesadas y sonidos SuperNATURAL.",
+    "inStock": true,
+    "rating": 4.7,
+    "specifications": {
+      "keys": "88 teclas PHA-4 Standard",
+      "sounds": "35 sonidos",
+      "polyphony": "256 notas",
+      "connectivity": "Bluetooth, USB"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Pearl Export EXX",
+    "slug": "pearl-export-exx",
+    "category": "Baterías",
+    "price": 799,
+    "brand": "Pearl",
+    "image": "https://images.pexels.com/photos/995301/pexels-photo-995301.jpeg",
+    "description": "Batería completa de 5 piezas con platillos Sabian SBR incluidos.",
+    "inStock": true,
+    "rating": 4.4,
+    "specifications": {
+      "shells": "Madera de álamo de 6 capas",
+      "sizes": "22x18 BD, 10x7 TT, 12x8 TT, 16x14 FT, 14x5.5 SD",
+      "hardware": "Cromado",
+      "cymbals": "Sabian SBR incluidos"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Ibanez RG550",
+    "slug": "ibanez-rg550",
+    "category": "Guitarras Eléctricas",
+    "price": 899,
+    "brand": "Ibanez",
+    "image": "https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg",
+    "description": "Guitarra eléctrica con mástil Wizard III ultra delgado y tremolo Edge.",
+    "inStock": true,
+    "rating": 4.6,
+    "specifications": {
+      "body": "Basswood",
+      "neck": "Wizard III Maple",
+      "fretboard": "Bound Maple",
+      "pickups": "V7, S1, V8 (HSH)"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Martin D-28",
+    "slug": "martin-d-28",
+    "category": "Guitarras Acústicas",
+    "price": 3199,
+    "brand": "Martin",
+    "image": "https://images.pexels.com/photos/1464375/pexels-photo-1464375.jpeg",
+    "description": "La legendaria guitarra acústica con tapa de pícea Sitka y fondo de palisandro.",
+    "inStock": false,
+    "rating": 4.9,
+    "specifications": {
+      "top": "Pícea Sitka sólida",
+      "back": "Palisandro del Este",
+      "sides": "Palisandro del Este",
+      "neck": "Caoba seleccionada"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Yamaha P-125",
+    "slug": "yamaha-p-125",
+    "category": "Pianos Digitales",
+    "price": 649,
+    "brand": "Yamaha",
+    "image": "https://images.pexels.com/photos/210764/pexels-photo-210764.jpeg",
+    "description": "Piano digital compacto con teclas GHS y sonidos de piano de cola CFX.",
+    "inStock": true,
+    "rating": 4.6,
+    "specifications": {
+      "keys": "88 teclas GHS",
+      "sounds": "24 voces",
+      "polyphony": "192 notas",
+      "app": "Smart Pianist compatible"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Tama Imperialstar",
+    "slug": "tama-imperialstar",
+    "category": "Baterías",
+    "price": 599,
+    "brand": "Tama",
+    "image": "https://images.pexels.com/photos/995301/pexels-photo-995301.jpeg",
+    "description": "Kit de batería de 5 piezas con hardware incluido y platillos Meinl HCS.",
+    "inStock": true,
+    "rating": 4.3,
+    "specifications": {
+      "shells": "Álamo de 8 capas",
+      "sizes": "22x16 BD, 10x8 TT, 12x9 TT, 16x16 FT, 14x5.5 SD",
+      "finish": "Lacado brillante",
+      "cymbals": "Meinl HCS incluidos"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Fender Jazz Bass",
+    "slug": "fender-jazz-bass",
+    "category": "Bajos Eléctricos",
+    "price": 799,
+    "brand": "Fender",
+    "image": "https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg",
+    "description": "Bajo eléctrico de 4 cuerdas con pastillas single-coil y sonido versátil.",
+    "inStock": true,
+    "rating": 4.7,
+    "specifications": {
+      "body": "Aliso",
+      "neck": "Maple",
+      "fretboard": "Palisandro",
+      "pickups": "Single-Coil Jazz Bass"
+    }
+  },
+  {
+    "id": 11,
+    "name": "Taylor 814ce",
+    "slug": "taylor-814ce",
+    "category": "Guitarras Acústicas",
+    "price": 3899,
+    "brand": "Taylor",
+    "image": "https://images.pexels.com/photos/1464375/pexels-photo-1464375.jpeg",
+    "description": "Guitarra electroacústica con tapa de pícea Sitka y fondo de palisandro indio.",
+    "inStock": true,
+    "rating": 4.8,
+    "specifications": {
+      "top": "Pícea Sitka sólida",
+      "back": "Palisandro indio",
+      "sides": "Palisandro indio",
+      "electronics": "ES2 System"
+    }
+  },
+  {
+    "id": 12,
+    "name": "Korg Minilogue XD",
+    "slug": "korg-minilogue-xd",
+    "category": "Sintetizadores",
+    "price": 649,
+    "brand": "Korg",
+    "image": "https://images.pexels.com/photos/210764/pexels-photo-210764.jpeg",
+    "description": "Sintetizador analógico polifónico de 4 voces con motor de efectos digitales.",
+    "inStock": true,
+    "rating": 4.5,
+    "specifications": {
+      "voices": "4 voces",
+      "oscillators": "2 VCO + Multi Engine",
+      "filter": "Filtro resonante de 2 polos",
+      "effects": "Delay, Reverb, Modulation"
+    }
+  },
+  {
+    "id": 13,
+    "name": "Zildjian A Custom",
+    "slug": "zildjian-a-custom",
+    "category": "Platillos",
+    "price": 299,
+    "brand": "Zildjian",
+    "image": "https://images.pexels.com/photos/995301/pexels-photo-995301.jpeg",
+    "description": "Platillo crash de 18\" con sonido brillante y potente proyección.",
+    "inStock": true,
+    "rating": 4.6,
+    "specifications": {
+      "size": "18 pulgadas",
+      "alloy": "B20 Bronze",
+      "finish": "Brilliant",
+      "weight": "Medium Heavy"
+    }
+  },
+  {
+    "id": 14,
+    "name": "Shure SM57",
+    "slug": "shure-sm57",
+    "category": "Micrófonos",
+    "price": 99,
+    "brand": "Shure",
+    "image": "https://images.pexels.com/photos/995301/pexels-photo-995301.jpeg",
+    "description": "Micrófono dinámico cardioide profesional, estándar de la industria.",
+    "inStock": true,
+    "rating": 4.8,
+    "specifications": {
+      "type": "Dinámico",
+      "pattern": "Cardioide",
+      "frequency": "40 Hz - 15 kHz",
+      "impedance": "310 Ohms"
+    }
+  },
+  {
+    "id": 15,
+    "name": "ESP LTD EC-1000",
+    "slug": "esp-ltd-ec-1000",
+    "category": "Guitarras Eléctricas",
+    "price": 999,
+    "brand": "ESP",
+    "image": "https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg",
+    "description": "Guitarra eléctrica con cuerpo de caoba y pastillas EMG activas.",
+    "inStock": true,
+    "rating": 4.7,
+    "specifications": {
+      "body": "Caoba",
+      "neck": "3-piece Mahogany",
+      "fretboard": "Macassar Ebony",
+      "pickups": "EMG 81/60 Active"
+    }
+  },
+  {
+    "id": 16,
+    "name": "Yamaha Silent Guitar SLG200S",
+    "slug": "yamaha-silent-guitar-slg200s",
+    "category": "Guitarras Acústicas",
+    "price": 699,
+    "brand": "Yamaha",
+    "image": "https://images.pexels.com/photos/1464375/pexels-photo-1464375.jpeg",
+    "description": "Guitarra silent con marco desmontable y sistema SRT POWERED.",
+    "inStock": true,
+    "rating": 4.4,
+    "specifications": {
+      "body": "Marco de caoba con chambering",
+      "neck": "Nato",
+      "fretboard": "Palisandro",
+      "electronics": "SRT POWERED con efectos"
+    }
+  },
+  {
+    "id": 17,
+    "name": "Nord Stage 3",
+    "slug": "nord-stage-3",
+    "category": "Pianos Digitales",
+    "price": 3999,
+    "brand": "Nord",
+    "image": "https://images.pexels.com/photos/210764/pexels-photo-210764.jpeg",
+    "description": "Piano de escenario con 88 teclas totalmente pesadas y múltiples engines.",
+    "inStock": false,
+    "rating": 4.9,
+    "specifications": {
+      "keys": "88 teclas Fatar TP/100LR",
+      "sounds": "Piano, Organ, Synth",
+      "memory": "1 GB Flash Memory",
+      "connectivity": "MIDI, USB, Audio"
+    }
+  },
+  {
+    "id": 18,
+    "name": "DW Collector's Series",
+    "slug": "dw-collectors-series",
+    "category": "Baterías",
+    "price": 2999,
+    "brand": "DW",
+    "image": "https://images.pexels.com/photos/995301/pexels-photo-995301.jpeg",
+    "description": "Kit de batería premium con shells de maple y acabado lacado a mano.",
+    "inStock": true,
+    "rating": 4.8,
+    "specifications": {
+      "shells": "North American Maple",
+      "sizes": "22x18 BD, 10x8 TT, 12x9 TT, 16x14 FT, 14x6.5 SD",
+      "hardware": "DW 9000 Series",
+      "finish": "Hand-Rubbed Lacquer"
+    }
+  },
+  {
+    "id": 19,
+    "name": "Music Man StingRay",
+    "slug": "music-man-stingray",
+    "category": "Bajos Eléctricos",
+    "price": 1799,
+    "brand": "Music Man",
+    "image": "https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg",
+    "description": "Bajo eléctrico de 4 cuerdas con pastilla humbucker y ecualizador activo.",
+    "inStock": true,
+    "rating": 4.7,
+    "specifications": {
+      "body": "Ash or Alder",
+      "neck": "Hard Rock Maple",
+      "fretboard": "Hard Rock Maple",
+      "electronics": "3-band EQ activo"
+    }
+  },
+  {
+    "id": 20,
+    "name": "Ovation Celebrity Elite",
+    "slug": "ovation-celebrity-elite",
+    "category": "Guitarras Acústicas",
+    "price": 549,
+    "brand": "Ovation",
+    "image": "https://images.pexels.com/photos/1464375/pexels-photo-1464375.jpeg",
+    "description": "Guitarra electroacústica con cuerpo roundback y pastilla OP-4CT.",
+    "inStock": true,
+    "rating": 4.3,
+    "specifications": {
+      "top": "Pícea sólida",
+      "back": "Mid-Depth Roundback",
+      "sides": "Lyrachord",
+      "electronics": "OP-4CT Preamp"
+    }
+  },
+  {
+    "id": 21,
+    "name": "Moog Subsequent 37",
+    "slug": "moog-subsequent-37",
+    "category": "Sintetizadores",
+    "price": 1499,
+    "brand": "Moog",
+    "image": "https://images.pexels.com/photos/210764/pexels-photo-210764.jpeg",
+    "description": "Sintetizador analógico parafónico con 2 osciladores y filtro Moog.",
+    "inStock": true,
+    "rating": 4.8,
+    "specifications": {
+      "oscillators": "2 VCO",
+      "filter": "Moog 4-pole ladder filter",
+      "voices": "Parafónico",
+      "keyboard": "37 teclas"
+    }
+  },
+  {
+    "id": 22,
+    "name": "Sabian AAX X-Plosion",
+    "slug": "sabian-aax-x-plosion",
+    "category": "Platillos",
+    "price": 349,
+    "brand": "Sabian",
+    "image": "https://images.pexels.com/photos/995301/pexels-photo-995301.jpeg",
+    "description": "Platillo crash de 19\" con sonido explosivo y corte excepcional.",
+    "inStock": true,
+    "rating": 4.5,
+    "specifications": {
+      "size": "19 pulgadas",
+      "alloy": "B20 Bronze",
+      "finish": "Brilliant",
+      "weight": "Medium Heavy"
+    }
+  },
+  {
+    "id": 23,
+    "name": "Audio-Technica AT2020",
+    "slug": "audio-technica-at2020",
+    "category": "Micrófonos",
+    "price": 99,
+    "brand": "Audio-Technica",
+    "image": "https://images.pexels.com/photos/995301/pexels-photo-995301.jpeg",
+    "description": "Micrófono de condensador cardioide de lado con gran diafragma.",
+    "inStock": true,
+    "rating": 4.6,
+    "specifications": {
+      "type": "Condensador",
+      "pattern": "Cardioide",
+      "frequency": "20 Hz - 20 kHz",
+      "phantom": "48V requerido"
+    }
+  },
+  {
+    "id": 24,
+    "name": "PRS SE Custom 24",
+    "slug": "prs-se-custom-24",
+    "category": "Guitarras Eléctricas",
+    "price": 829,
+    "brand": "PRS",
+    "image": "https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg",
+    "description": "Guitarra eléctrica con 24 trastes y pastillas 85/15 \"S\".",
+    "inStock": true,
+    "rating": 4.6,
+    "specifications": {
+      "body": "Mahogany with Maple Cap",
+      "neck": "Wide Thin Maple",
+      "fretboard": "Rosewood",
+      "pickups": "85/15 \"S\" Humbuckers"
+    }
+  },
+  {
+    "id": 25,
+    "name": "Guild D-240E",
+    "slug": "guild-d-240e",
+    "category": "Guitarras Acústicas",
+    "price": 699,
+    "brand": "Guild",
+    "image": "https://images.pexels.com/photos/1464375/pexels-photo-1464375.jpeg",
+    "description": "Guitarra electroacústica dreadnought con tapa de pícea sólida.",
+    "inStock": true,
+    "rating": 4.4,
+    "specifications": {
+      "top": "Pícea sólida",
+      "back": "Mahogany",
+      "sides": "Mahogany",
+      "electronics": "AP-1 Pickup System"
+    }
+  },
+  {
+    "id": 26,
+    "name": "Casio Privia PX-770",
+    "slug": "casio-privia-px-770",
+    "category": "Pianos Digitales",
+    "price": 799,
+    "brand": "Casio",
+    "image": "https://images.pexels.com/photos/210764/pexels-photo-210764.jpeg",
+    "description": "Piano digital con mueble y 88 teclas Tri-sensor Scaled Hammer Action.",
+    "inStock": true,
+    "rating": 4.5,
+    "specifications": {
+      "keys": "88 teclas Tri-sensor Scaled Hammer",
+      "sounds": "19 sonidos",
+      "polyphony": "128 notas",
+      "pedals": "3 pedales incluidos"
+    }
+  },
+  {
+    "id": 27,
+    "name": "Gretsch Catalina Maple",
+    "slug": "gretsch-catalina-maple",
+    "category": "Baterías",
+    "price": 899,
+    "brand": "Gretsch",
+    "image": "https://images.pexels.com/photos/995301/pexels-photo-995301.jpeg",
+    "description": "Batería de 5 piezas con shells de maple de 7 capas.",
+    "inStock": true,
+    "rating": 4.4,
+    "specifications": {
+      "shells": "7-ply Maple",
+      "sizes": "22x18 BD, 10x7 TT, 12x8 TT, 16x14 FT, 14x5 SD",
+      "hardware": "Gretsch Hardware",
+      "bearing": "30-degree bearing edges"
+    }
+  },
+  {
+    "id": 28,
+    "name": "Rickenbacker 4003",
+    "slug": "rickenbacker-4003",
+    "category": "Bajos Eléctricos",
+    "price": 2099,
+    "brand": "Rickenbacker",
+    "image": "https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg",
+    "description": "Bajo eléctrico icónico con sonido distintivo y construcción neck-through.",
+    "inStock": false,
+    "rating": 4.7,
+    "specifications": {
+      "body": "Maple",
+      "neck": "Maple neck-through",
+      "fretboard": "Rosewood",
+      "pickups": "High-gain single coils"
+    }
+  },
+  {
+    "id": 29,
+    "name": "Breedlove Discovery Concert",
+    "slug": "breedlove-discovery-concert",
+    "category": "Guitarras Acústicas",
+    "price": 299,
+    "brand": "Breedlove",
+    "image": "https://images.pexels.com/photos/1464375/pexels-photo-1464375.jpeg",
+    "description": "Guitarra acústica concert con tapa de pícea y construcción sólida.",
+    "inStock": true,
+    "rating": 4.2,
+    "specifications": {
+      "top": "Sitka Spruce",
+      "back": "Mahogany",
+      "sides": "Mahogany",
+      "neck": "African Mahogany"
+    }
+  },
+  {
+    "id": 30,
+    "name": "Arturia MicroFreak",
+    "slug": "arturia-microfreak",
+    "category": "Sintetizadores",
+    "price": 349,
+    "brand": "Arturia",
+    "image": "https://images.pexels.com/photos/210764/pexels-photo-210764.jpeg",
+    "description": "Sintetizador híbrido digital/analógico con teclado capacitivo.",
+    "inStock": true,
+    "rating": 4.5,
+    "specifications": {
+      "oscillators": "Digital Oscillators",
+      "filter": "Analog Multimode Filter",
+      "voices": "4 voces parafónicas",
+      "keyboard": "25 teclas capacitivas"
+    }
+  },
+  {
+    "id": 31,
+    "name": "Paiste 2002 Medium",
+    "slug": "paiste-2002-medium",
+    "category": "Platillos",
+    "price": 279,
+    "brand": "Paiste",
+    "image": "https://images.pexels.com/photos/995301/pexels-photo-995301.jpeg",
+    "description": "Platillo crash de 18\" con sonido cálido y sustain equilibrado.",
+    "inStock": true,
+    "rating": 4.6,
+    "specifications": {
+      "size": "18 pulgadas",
+      "alloy": "CuSn8 Bronze",
+      "finish": "Traditional",
+      "weight": "Medium"
+    }
+  },
+  {
+    "id": 32,
+    "name": "Neumann U87 Ai",
+    "slug": "neumann-u87-ai",
+    "category": "Micrófonos",
+    "price": 3699,
+    "brand": "Neumann",
+    "image": "https://images.pexels.com/photos/995301/pexels-photo-995301.jpeg",
+    "description": "Micrófono de condensador de gran diafragma, estándar de estudios.",
+    "inStock": false,
+    "rating": 4.9,
+    "specifications": {
+      "type": "Condensador FET",
+      "patterns": "Omnidireccional, Cardioide, Figura-8",
+      "frequency": "20 Hz - 20 kHz",
+      "pad": "0, -10 dB"
+    }
+  },
+  {
+    "id": 33,
+    "name": "Schecter Hellraiser C-1",
+    "slug": "schecter-hellraiser-c-1",
+    "category": "Guitarras Eléctricas",
+    "price": 899,
+    "brand": "Schecter",
+    "image": "https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg",
+    "description": "Guitarra eléctrica con pastillas EMG activas y acabado gothic.",
+    "inStock": true,
+    "rating": 4.5,
+    "specifications": {
+      "body": "Mahogany",
+      "neck": "3-piece Mahogany",
+      "fretboard": "Rosewood",
+      "pickups": "EMG 81TW/89 Active"
+    }
+  },
+  {
+    "id": 34,
+    "name": "Seagull S6 Original",
+    "slug": "seagull-s6-original",
+    "category": "Guitarras Acústicas",
+    "price": 399,
+    "brand": "Seagull",
+    "image": "https://images.pexels.com/photos/1464375/pexels-photo-1464375.jpeg",
+    "description": "Guitarra acústica hecha a mano en Canadá con tapa de cedro presionado.",
+    "inStock": true,
+    "rating": 4.4,
+    "specifications": {
+      "top": "Pressed Cedar",
+      "back": "Wild Cherry",
+      "sides": "Wild Cherry",
+      "neck": "Silver Leaf Maple"
+    }
+  },
+  {
+    "id": 35,
+    "name": "Kawai ES110",
+    "slug": "kawai-es110",
+    "category": "Pianos Digitales",
+    "price": 649,
+    "brand": "Kawai",
+    "image": "https://images.pexels.com/photos/210764/pexels-photo-210764.jpeg",
+    "description": "Piano digital portátil con 88 teclas Responsive Hammer Compact.",
+    "inStock": true,
+    "rating": 4.6,
+    "specifications": {
+      "keys": "88 teclas RHC",
+      "sounds": "19 sonidos",
+      "polyphony": "192 notas",
+      "app": "PianoRemote App"
+    }
+  },
+  {
+    "id": 36,
+    "name": "Ludwig Classic Maple",
+    "slug": "ludwig-classic-maple",
+    "category": "Baterías",
+    "price": 1299,
+    "brand": "Ludwig",
+    "image": "https://images.pexels.com/photos/995301/pexels-photo-995301.jpeg",
+    "description": "Batería con shells de maple de 6 capas y acabado vintage.",
+    "inStock": true,
+    "rating": 4.5,
+    "specifications": {
+      "shells": "6-ply North American Maple",
+      "sizes": "22x16 BD, 12x8 TT, 13x9 TT, 16x16 FT, 14x5 SD",
+      "hardware": "Chrome Classic Lugs",
+      "finish": "Vintage Marine Pearl"
+    }
+  },
+  {
+    "id": 37,
+    "name": "Warwick Thumb BO",
+    "slug": "warwick-thumb-bo",
+    "category": "Bajos Eléctricos",
+    "price": 1899,
+    "brand": "Warwick",
+    "image": "https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg",
+    "description": "Bajo eléctrico con cuerpo de bubinga y pastillas MEC activas.",
+    "inStock": true,
+    "rating": 4.6,
+    "specifications": {
+      "body": "Bubinga",
+      "neck": "Ovangkol",
+      "fretboard": "Wenge",
+      "electronics": "MEC Active Electronics"
+    }
+  },
+  {
+    "id": 38,
+    "name": "Ramirez 4N Classical",
+    "slug": "ramirez-4n-classical",
+    "category": "Guitarras Clásicas",
+    "price": 1299,
+    "brand": "Ramirez",
+    "image": "https://images.pexels.com/photos/1464375/pexels-photo-1464375.jpeg",
+    "description": "Guitarra clásica española con tapa de cedro rojo y construcción tradicional.",
+    "inStock": true,
+    "rating": 4.7,
+    "specifications": {
+      "top": "Cedro rojo",
+      "back": "Palosanto de India",
+      "sides": "Palosanto de India",
+      "neck": "Cedro"
+    }
+  },
+  {
+    "id": 39,
+    "name": "Sequential Prophet-5",
+    "slug": "sequential-prophet-5",
+    "category": "Sintetizadores",
+    "price": 3999,
+    "brand": "Sequential",
+    "image": "https://images.pexels.com/photos/210764/pexels-photo-210764.jpeg",
+    "description": "Sintetizador analógico polifónico de 5 voces, leyenda vintage.",
+    "inStock": false,
+    "rating": 4.9,
+    "specifications": {
+      "voices": "5 voces",
+      "oscillators": "2 VCO por voz",
+      "filter": "Low-pass resonante",
+      "keyboard": "61 teclas"
+    }
+  },
+  {
+    "id": 40,
+    "name": "Istanbul Agop Traditional",
+    "slug": "istanbul-agop-traditional",
+    "category": "Platillos",
+    "price": 329,
+    "brand": "Istanbul Agop",
+    "image": "https://images.pexels.com/photos/995301/pexels-photo-995301.jpeg",
+    "description": "Platillo crash de 20\" hecho a mano con sonido tradicional turco.",
+    "inStock": true,
+    "rating": 4.7,
+    "specifications": {
+      "size": "20 pulgadas",
+      "alloy": "B20 Bronze",
+      "finish": "Traditional",
+      "weight": "Medium"
+    }
+  },
+  {
+    "id": 41,
+    "name": "AKG C414 XLII",
+    "slug": "akg-c414-xlii",
+    "category": "Micrófonos",
+    "price": 1199,
+    "brand": "AKG",
+    "image": "https://images.pexels.com/photos/995301/pexels-photo-995301.jpeg",
+    "description": "Micrófono de condensador multipatrón con sonido brillante y detallado.",
+    "inStock": true,
+    "rating": 4.7,
+    "specifications": {
+      "type": "Condensador",
+      "patterns": "9 patrones polares",
+      "frequency": "20 Hz - 20 kHz",
+      "pad": "0, -6, -12, -18 dB"
+    }
+  },
+  {
+    "id": 42,
+    "name": "Jackson Soloist SLX",
+    "slug": "jackson-soloist-slx",
+    "category": "Guitarras Eléctricas",
+    "price": 799,
+    "brand": "Jackson",
+    "image": "https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg",
+    "description": "Guitarra eléctrica con cuerpo de basswood y mástil speed neck.",
+    "inStock": true,
+    "rating": 4.4,
+    "specifications": {
+      "body": "Basswood",
+      "neck": "Bolt-on Maple Speed Neck",
+      "fretboard": "Amaranth",
+      "pickups": "Jackson High-Output Humbuckers"
+    }
+  },
+  {
+    "id": 43,
+    "name": "Cordoba C9 Classical",
+    "slug": "cordoba-c9-classical",
+    "category": "Guitarras Clásicas",
+    "price": 899,
+    "brand": "Cordoba",
+    "image": "https://images.pexels.com/photos/1464375/pexels-photo-1464375.jpeg",
+    "description": "Guitarra clásica con tapa de cedro sólido y fondo de palisandro.",
+    "inStock": true,
+    "rating": 4.5,
+    "specifications": {
+      "top": "Cedro sólido canadiense",
+      "back": "Palisandro de India",
+      "sides": "Palisandro de India",
+      "neck": "Caoba africana"
+    }
+  },
+  {
+    "id": 44,
+    "name": "Korg SV-2 Stage Piano",
+    "slug": "korg-sv-2-stage-piano",
+    "category": "Pianos Digitales",
+    "price": 1799,
+    "brand": "Korg",
+    "image": "https://images.pexels.com/photos/210764/pexels-photo-210764.jpeg",
+    "description": "Piano de escenario con 88 teclas RH3 y sonidos vintage auténticos.",
+    "inStock": true,
+    "rating": 4.6,
+    "specifications": {
+      "keys": "88 teclas RH3",
+      "sounds": "72 sonidos",
+      "effects": "40 efectos incorporados",
+      "connectivity": "MIDI, USB, Audio I/O"
+    }
+  },
+  {
+    "id": 45,
+    "name": "Sonor AQ2 Studio Set",
+    "slug": "sonor-aq2-studio-set",
+    "category": "Baterías",
+    "price": 999,
+    "brand": "Sonor",
+    "image": "https://images.pexels.com/photos/995301/pexels-photo-995301.jpeg",
+    "description": "Kit de batería con shells de maple de 7 capas y hardware Smart Mount.",
+    "inStock": true,
+    "rating": 4.5,
+    "specifications": {
+      "shells": "7-ply Maple with reinforcement rings",
+      "sizes": "20x17.5 BD, 10x7 TT, 12x8 TT, 14x14 FT, 14x5 SD",
+      "hardware": "Smart Mount Tom System",
+      "finish": "TigerMaple"
+    }
+  },
+  {
+    "id": 46,
+    "name": "Spector Euro 4LX",
+    "slug": "spector-euro-4lx",
+    "category": "Bajos Eléctricos",
+    "price": 1399,
+    "brand": "Spector",
+    "image": "https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg",
+    "description": "Bajo eléctrico con cuerpo curvado y electrónica activa Spector TonePump.",
+    "inStock": true,
+    "rating": 4.6,
+    "specifications": {
+      "body": "Agathis with Maple cap",
+      "neck": "3-piece Maple",
+      "fretboard": "Rosewood",
+      "electronics": "Spector TonePump Jr."
+    }
+  },
+  {
+    "id": 47,
+    "name": "Alhambra 4P Classical",
+    "slug": "alhambra-4p-classical",
+    "category": "Guitarras Clásicas",
+    "price": 599,
+    "brand": "Alhambra",
+    "image": "https://images.pexels.com/photos/1464375/pexels-photo-1464375.jpeg",
+    "description": "Guitarra clásica española con tapa de cedro sólido y construcción artesanal.",
+    "inStock": true,
+    "rating": 4.4,
+    "specifications": {
+      "top": "Cedro sólido",
+      "back": "Sapelly",
+      "sides": "Sapelly",
+      "neck": "Samanguila"
+    }
+  },
+  {
+    "id": 48,
+    "name": "Behringer DeepMind 12",
+    "slug": "behringer-deepmind-12",
+    "category": "Sintetizadores",
+    "price": 699,
+    "brand": "Behringer",
+    "image": "https://images.pexels.com/photos/210764/pexels-photo-210764.jpeg",
+    "description": "Sintetizador analógico polifónico de 12 voces con efectos digitales.",
+    "inStock": true,
+    "rating": 4.3,
+    "specifications": {
+      "voices": "12 voces",
+      "oscillators": "2 VCO por voz",
+      "filter": "Curtis CEM3379 4-pole",
+      "effects": "32 algoritmos de efectos"
+    }
+  },
+  {
+    "id": 49,
+    "name": "Meinl Byzance Traditional",
+    "slug": "meinl-byzance-traditional",
+    "category": "Platillos",
+    "price": 389,
+    "brand": "Meinl",
+    "image": "https://images.pexels.com/photos/995301/pexels-photo-995301.jpeg",
+    "description": "Platillo crash de 19\" hecho a mano con sonido tradicional turco.",
+    "inStock": true,
+    "rating": 4.6,
+    "specifications": {
+      "size": "19 pulgadas",
+      "alloy": "B20 Bronze",
+      "finish": "Traditional",
+      "weight": "Medium"
+    }
+  },
+  {
+    "id": 50,
+    "name": "Rode PodMic",
+    "slug": "rode-podmic",
+    "category": "Micrófonos",
+    "price": 199,
+    "brand": "Rode",
+    "image": "https://images.pexels.com/photos/995301/pexels-photo-995301.jpeg",
+    "description": "Micrófono dinámico para podcasting con respuesta de frecuencia optimizada.",
+    "inStock": true,
+    "rating": 4.5,
+    "specifications": {
+      "type": "Dinámico",
+      "pattern": "Cardioide",
+      "frequency": "20 Hz - 20 kHz",
+      "mount": "Swing Mount incluido"
+    }
+  },
+  {
+    "id": 51,
+    "name": "Dean ML 79",
+    "slug": "dean-ml-79",
+    "category": "Guitarras Eléctricas",
+    "price": 399,
+    "brand": "Dean",
+    "image": "https://images.pexels.com/photos/1407322/pexels-photo-1407322.jpeg",
+    "description": "Guitarra eléctrica con forma icónica ML y pastillas DMT Design.",
+    "inStock": true,
+    "rating": 4.2,
+    "specifications": {
+      "body": "Basswood",
+      "neck": "Maple",
+      "fretboard": "Rosewood",
+      "pickups": "DMT Design Humbuckers"
+    }
+  },
+  {
+    "id": 52,
+    "name": "La Patrie Etude",
+    "slug": "la-patrie-etude",
+    "category": "Guitarras Clásicas",
+    "price": 399,
+    "brand": "La Patrie",
+    "image": "https://images.pexels.com/photos/1464375/pexels-photo-1464375.jpeg",
+    "description": "Guitarra clásica canadiense con tapa de cedro presionado y construcción sólida.",
+    "inStock": true,
+    "rating": 4.3,
+    "specifications": {
+      "top": "Pressed Cedar",
+      "back": "Laminated Wild Cherry",
+      "sides": "Laminated Wild Cherry",
+      "neck": "Silver Leaf Maple"
+    }
+  }
+]

@@ -1,0 +1,451 @@
+---
+const navigation = [
+  { 
+    name: 'Instrumentos', 
+    href: '#',
+    submenu: [
+      { name: 'Guitarras Eléctricas', href: '/instrumentos/guitarras-electricas' },
+      { name: 'Guitarras Acústicas', href: '/instrumentos/guitarras-acusticas' },
+      { name: 'Guitarras Clásicas', href: '/instrumentos/guitarras-clasicas' },
+      { name: 'Pianos Digitales', href: '/instrumentos/pianos-digitales' },
+      { name: 'Baterías', href: '/instrumentos/baterias' },
+      { name: 'Bajos Eléctricos', href: '/instrumentos/bajos-electricos' },
+      { name: 'Sintetizadores', href: '/instrumentos/sintetizadores' },
+      { name: 'Platillos', href: '/instrumentos/platillos' },
+      { name: 'Micrófonos', href: '/instrumentos/microfonos' }
+    ]
+  }
+];
+---
+
+<nav class="main-navigation">
+  <div class="nav-container">
+    <div class="nav-brand">
+      <a href="/">
+        <span class="brand-icon">🎵</span>
+        <span class="brand-text">MusicStore</span>
+      </a>
+    </div>
+    
+    <div class="nav-links">
+      {navigation.map(item => (
+        item.submenu ? (
+          <div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle" data-dropdown="instrumentos">
+              {item.name}
+              <span class="dropdown-arrow">▼</span>
+            </button>
+            <div class="dropdown-menu" id="instrumentos-menu">
+              {item.submenu.map(subItem => (
+                <a href={subItem.href} class="dropdown-item">
+                  {subItem.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <a href={item.href} class="nav-link">
+            {item.name}
+          </a>
+        )
+      ))}
+    </div>
+
+    <div class="nav-mobile-toggle">
+      <button id="mobile-menu-btn" aria-label="Abrir menú móvil">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="nav-mobile-menu" id="mobile-menu">
+    {navigation.map(item => (
+      item.submenu ? (
+        <div class="mobile-dropdown">
+          <button class="nav-mobile-link dropdown-toggle-mobile" data-mobile-dropdown="instrumentos">
+            {item.name}
+            <span class="dropdown-arrow">▼</span>
+          </button>
+          <div class="mobile-dropdown-menu" id="mobile-instrumentos-menu">
+            {item.submenu.map(subItem => (
+              <a href={subItem.href} class="mobile-dropdown-item">
+                {subItem.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <a href={item.href} class="nav-mobile-link">
+          {item.name}
+        </a>
+      )
+    ))}
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    // Mobile menu toggle
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        mobileMenuBtn.classList.toggle('active');
+      });
+
+      // Cerrar menú al hacer click en un enlace
+      const mobileLinks = mobileMenu.querySelectorAll('.nav-mobile-link:not(.dropdown-toggle-mobile)');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+          mobileMenuBtn.classList.remove('active');
+        });
+      });
+    }
+
+    // Desktop dropdown functionality
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const dropdownMenu = document.getElementById('instrumentos-menu');
+    
+    if (dropdownToggle && dropdownMenu) {
+      let timeoutId;
+      
+      dropdownToggle.addEventListener('mouseenter', () => {
+        clearTimeout(timeoutId);
+        dropdownMenu.classList.add('show');
+      });
+      
+      dropdownToggle.addEventListener('mouseleave', () => {
+        timeoutId = setTimeout(() => {
+          dropdownMenu.classList.remove('show');
+        }, 200);
+      });
+      
+      dropdownMenu.addEventListener('mouseenter', () => {
+        clearTimeout(timeoutId);
+      });
+      
+      dropdownMenu.addEventListener('mouseleave', () => {
+        dropdownMenu.classList.remove('show');
+      });
+    }
+
+    // Mobile dropdown functionality
+    const mobileDropdownToggle = document.querySelector('.dropdown-toggle-mobile');
+    const mobileDropdownMenu = document.getElementById('mobile-instrumentos-menu');
+    
+    if (mobileDropdownToggle && mobileDropdownMenu) {
+      mobileDropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        mobileDropdownMenu.classList.toggle('show');
+        mobileDropdownToggle.classList.toggle('active');
+      });
+
+      // Cerrar dropdown móvil al hacer click en un item
+      const mobileDropdownItems = mobileDropdownMenu.querySelectorAll('.mobile-dropdown-item');
+      mobileDropdownItems.forEach(item => {
+        item.addEventListener('click', () => {
+          mobileDropdownMenu.classList.remove('show');
+          mobileDropdownToggle.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          mobileMenuBtn.classList.remove('active');
+        });
+      });
+    }
+  });
+</script>
+
+<style>
+  .main-navigation {
+    background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+  }
+
+  .nav-brand a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .brand-icon {
+    font-size: 2rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  }
+
+  .brand-text {
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-link:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  .nav-link:hover::after {
+    width: 80%;
+  }
+
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .dropdown-arrow {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+  }
+
+  .dropdown-toggle:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+    z-index: 1000;
+  }
+
+  .dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown-item {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #374151;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-radius: 8px;
+    margin: 0.25rem;
+  }
+
+  .dropdown-item:hover {
+    background: #f3f4f6;
+    color: #1f2937;
+    transform: translateX(4px);
+  }
+
+  .dropdown-item:first-child {
+    margin-top: 0.5rem;
+  }
+
+  .dropdown-item:last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-mobile-toggle {
+    display: none;
+  }
+
+  #mobile-menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  #mobile-menu-btn span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  #mobile-menu-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+  }
+
+  #mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  #mobile-menu-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  .nav-mobile-menu {
+    display: none;
+    background: #1f2937;
+    border-top: 1px solid #374151;
+    padding: 1rem 0;
+  }
+
+  .nav-mobile-menu.active {
+    display: block;
+  }
+
+  .nav-mobile-link {
+    display: block;
+    color: #e5e7eb;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-left: 4px solid transparent;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .nav-mobile-link:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    border-left-color: #3b82f6;
+  }
+
+  .mobile-dropdown {
+    position: relative;
+  }
+
+  .dropdown-toggle-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dropdown-toggle-mobile.active .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .mobile-dropdown-menu {
+    background: #374151;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .mobile-dropdown-menu.show {
+    max-height: 500px;
+  }
+
+  .mobile-dropdown-item {
+    display: block;
+    color: #d1d5db;
+    text-decoration: none;
+    padding: 0.5rem 2rem;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    border-left: 4px solid transparent;
+  }
+
+  .mobile-dropdown-item:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    border-left-color: #60a5fa;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+
+    .nav-mobile-toggle {
+      display: block;
+    }
+
+    .nav-container {
+      height: 60px;
+    }
+
+    .nav-brand a {
+      font-size: 1.3rem;
+    }
+
+    .brand-icon {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .nav-container {
+      padding: 0 0.75rem;
+    }
+
+    .nav-brand a {
+      font-size: 1.2rem;
+    }
+
+    .brand-icon {
+      font-size: 1.5rem;
+    }
+  }
+</style>

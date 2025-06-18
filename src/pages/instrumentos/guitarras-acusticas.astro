@@ -1,0 +1,160 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import AdminPanel from '../../components/AdminPanel.svelte';
+import { getCollection } from 'astro:content';
+
+// Obtener instrumentos desde Content Collections
+const instrumentsCollection = await getCollection('instruments');
+const instruments = instrumentsCollection[0].data; // Los datos están en el array del JSON
+
+const categoryName = 'Guitarras Acústicas';
+const products = instruments.filter(i => i.category === categoryName);
+---
+
+<Layout title={categoryName} description={`Descubre nuestra selección de ${categoryName.toLowerCase()} profesionales de las mejores marcas.`}>
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <div class="container">
+      <a href="/">Inicio</a>
+      <span class="separator">→</span>
+      <span class="current">{categoryName}</span>
+    </div>
+  </nav>
+
+  <!-- Header de Categoría -->
+  <section class="category-header">
+    <div class="container">
+      <h1 class="category-title">{categoryName}</h1>
+      <p class="category-description">
+        Descubre guitarras acústicas con sonidos cálidos y naturales. 
+        Perfectas para cualquier estilo musical, desde folk hasta fingerstyle.
+      </p>
+      <div class="category-stats">
+        <span class="stat">{products.length} instrumentos disponibles</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Productos -->
+  <section class="products-section">
+    <div class="container">
+      <div class="products-grid">
+        {products.map(product => (
+          <ProductCard product={product} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Panel de Administración -->
+  <AdminPanel client:only="svelte" />
+</Layout>
+
+<style>
+  .breadcrumb {
+    background: #f9fafb;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .breadcrumb .container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: #3b82f6;
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .separator {
+    color: #6b7280;
+  }
+
+  .current {
+    color: #1f2937;
+    font-weight: 500;
+  }
+
+  .category-header {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .category-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .category-description {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    opacity: 0.95;
+    line-height: 1.6;
+  }
+
+  .category-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .stat {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+  }
+
+  .products-section {
+    padding: 4rem 0;
+    background: #f9fafb;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .category-title {
+      font-size: 2.5rem;
+    }
+
+    .category-description {
+      font-size: 1.1rem;
+    }
+
+    .products-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .category-title {
+      font-size: 2rem;
+    }
+
+    .breadcrumb .container {
+      flex-wrap: wrap;
+    }
+  }
+</style>
+</Layout>

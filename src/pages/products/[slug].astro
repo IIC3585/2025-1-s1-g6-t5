@@ -1,0 +1,514 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AddToCart from '../../components/AddToCart.jsx';
+import AdminPanel from '../../components/AdminPanel.svelte';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  // Obtener instrumentos desde Content Collections
+  const instrumentsCollection = await getCollection('instruments');
+  const instruments = instrumentsCollection[0].data; // Los datos están en el array del JSON
+  
+  return instruments.map((instrument) => ({
+    params: { slug: instrument.slug },
+    props: { instrument },
+  }));
+}
+
+interface Props {
+  instrument: any; // Tipo flexible para los datos del instrumento
+}
+
+const { instrument } = Astro.props;
+
+function formatPrice(price: number) {
+  return new Intl.NumberFormat('es-CO', {
+    style: 'currency',
+    currency: 'COP',
+    minimumFractionDigits: 0
+  }).format(price);
+}
+
+function generateStars(rating: number) {
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = rating % 1 !== 0;
+  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+  
+  return '★'.repeat(fullStars) + (hasHalfStar ? '☆' : '') + '☆'.repeat(emptyStars);
+}
+
+// Obtener todos los instrumentos para productos relacionados
+const instrumentsCollection = await getCollection('instruments');
+const allInstruments = instrumentsCollection[0].data; // Los datos están en el array del JSON
+
+// Productos relacionados (misma categoría, excluyendo el actual)
+const relatedProducts = allInstruments
+  .filter(p => p.category === instrument.category && p.id !== instrument.id)
+  .slice(0, 4);
+---
+
+<Layout 
+  title={instrument.name}
+  description={`${instrument.description} - ${instrument.brand} ${instrument.name} en MusicStore`}
+>
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <div class="container">
+      <a href="/">Inicio</a>
+      <span class="separator">→</span>
+      <span class="category">{instrument.category}</span>
+      <span class="separator">→</span>
+      <span class="current">{instrument.name}</span>
+    </div>
+  </nav>
+
+  <!-- Producto Principal -->
+  <section class="product-detail">
+    <div class="container">
+      <div class="product-grid">
+        <!-- Imagen del Producto -->
+        <div class="product-image-section">
+          <div class="main-image">
+            <img 
+              src={instrument.image} 
+              alt={instrument.name}
+              class="product-image"
+            />
+            {!instrument.inStock && (
+              <div class="stock-overlay">
+                <span class="out-of-stock-text">Agotado</span>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <!-- Información del Producto -->
+        <div class="product-info-section">
+          <div class="product-badges">
+            <span class="brand-badge">{instrument.brand}</span>
+            <span class="category-badge">{instrument.category}</span>
+          </div>
+
+          <h1 class="product-title">{instrument.name}</h1>
+
+          <div class="product-rating">
+            <div class="stars">{generateStars(instrument.rating)}</div>
+            <span class="rating-text">({instrument.rating} de 5 estrellas)</span>
+          </div>
+
+          <div class="price-section">
+            <div class="current-price">
+              {formatPrice(instrument.price)}
+            </div>
+            {!instrument.inStock && (
+              <div class="stock-status out-of-stock">
+                <span class="status-icon">⚠️</span>
+                <span>Producto agotado</span>
+              </div>
+            )}
+            {instrument.inStock && (
+              <div class="stock-status in-stock">
+                <span class="status-icon">✅</span>
+                <span>En stock - Envío inmediato</span>
+              </div>
+            )}
+          </div>
+
+          <div class="product-description">
+            <h3>Descripción</h3>
+            <p>{instrument.description}</p>
+          </div>
+
+          <!-- Isla React: AddToCart -->
+          <AddToCart client:load product={instrument} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Especificaciones Técnicas -->
+  <section class="specifications">
+    <div class="container">
+      <h2 class="section-title">Especificaciones Técnicas</h2>
+      <div class="specs-grid">
+        {Object.entries(instrument.specifications).map(([key, value]) => (
+          <div class="spec-item">
+            <dt class="spec-label">{key}</dt>
+            <dd class="spec-value">{value}</dd>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Productos Relacionados -->
+  {relatedProducts.length > 0 && (
+    <section class="related-products">
+      <div class="container">
+        <h2 class="section-title">Productos Relacionados</h2>
+        <div class="products-grid">
+          {relatedProducts.map(product => (
+            <a href={`/products/${product.slug}`} class="related-product">
+              <img src={product.image} alt={product.name} />
+              <div class="product-info">
+                <h4>{product.name}</h4>
+                <p class="product-brand">{product.brand}</p>
+                <p class="product-price">{formatPrice(product.price)}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Panel de Administración (Isla Svelte) -->
+  <AdminPanel client:only="svelte" />
+</Layout>
+
+<style>
+  .breadcrumb {
+    background: #f9fafb;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .breadcrumb .container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb a {
+    color: #3b82f6;
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .separator {
+    color: #6b7280;
+  }
+
+  .category {
+    color: #6b7280;
+  }
+
+  .current {
+    color: #1f2937;
+    font-weight: 500;
+  }
+
+  .product-detail {
+    padding: 3rem 0;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .product-image-section {
+    position: sticky;
+    top: 2rem;
+  }
+
+  .main-image {
+    position: relative;
+    aspect-ratio: 4/3;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #f9fafb;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .stock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .out-of-stock-text {
+    background: #ef4444;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .product-info-section {
+    max-width: none;
+  }
+
+  .product-badges {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .brand-badge {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .category-badge {
+    background: #f3f4f6;
+    color: #374151;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .product-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.2;
+  }
+
+  .product-rating {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .stars {
+    color: #fbbf24;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+
+  .rating-text {
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .price-section {
+    background: #f9fafb;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border: 1px solid #e5e7eb;
+  }
+
+  .current-price {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #059669;
+    margin-bottom: 1rem;
+  }
+
+  .stock-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+  }
+
+  .stock-status.in-stock {
+    color: #059669;
+  }
+
+  .stock-status.out-of-stock {
+    color: #ef4444;
+  }
+
+  .status-icon {
+    font-size: 1.2rem;
+  }
+
+  .product-description {
+    margin-bottom: 2rem;
+  }
+
+  .product-description h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+
+  .product-description p {
+    color: #4b5563;
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .specifications {
+    background: #f9fafb;
+    padding: 4rem 0;
+  }
+
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .spec-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .spec-label {
+    font-weight: 600;
+    color: #374151;
+    text-transform: capitalize;
+  }
+
+  .spec-value {
+    color: #1f2937;
+    font-weight: 500;
+    text-align: right;
+  }
+
+  .related-products {
+    padding: 4rem 0;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .related-product {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+  }
+
+  .related-product:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .related-product img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .related-product .product-info {
+    padding: 1.5rem;
+  }
+
+  .related-product h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .related-product .product-brand {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .related-product .product-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #059669;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .product-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .product-title {
+      font-size: 2rem;
+    }
+
+    .current-price {
+      font-size: 2.5rem;
+    }
+
+    .product-info-section {
+      order: -1;
+    }
+
+    .product-image-section {
+      position: static;
+    }
+
+    .specs-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .spec-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .spec-value {
+      text-align: left;
+    }
+
+    .breadcrumb .container {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .product-title {
+      font-size: 1.75rem;
+    }
+
+    .current-price {
+      font-size: 2rem;
+    }
+
+    .price-section {
+      padding: 1.5rem;
+    }
+
+    .product-badges {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>
+</Layout>
