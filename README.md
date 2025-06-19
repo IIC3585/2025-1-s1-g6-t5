@@ -1,3 +1,31 @@
+# Music Store - Tienda de Instrumentos Musicales
+
+## Instrucciones para Ejecutar Localmente
+Para inicializar y ejecutar el proyecto en tu entorno local, sigue estos pasos:
+
+1. Clona el repositorio (si aún no lo has hecho)
+   ```bash
+   git clone <URL-del-repositorio>
+   cd 2025-1-s1-g6-t5
+   ```
+
+2. Instala las dependencias
+   ```bash
+   npm install
+   ```
+
+3. Inicia el servidor de desarrollo
+   ```bash
+   npm run dev
+   ```
+   Este comando iniciará un servidor de desarrollo en http://localhost:4321 (puerto predeterminado de Astro).
+
+4. Accede a la aplicación
+   Abre tu navegador web y visita:
+   ```
+   http://localhost:4321
+   ```
+
 ## ✅ **ANÁLISIS COMPLETO - PROYECTO COMPLETAMENTE IMPLEMENTADO**
 
 ### **1. Las dos islas con frameworks UI distintos:**
